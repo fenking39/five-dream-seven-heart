@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「五梦七心相」心相分析报告</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #2d3748;
+      --ink-secondary: #718096;
+      --ink-muted: #a0aec0;
+      --paper: #faf9f7;
+      --paper-secondary: #f0efed;
+      --paper-card: #ffffff;
+      --accent: #6b5b95;
+      --accent-warm: #b4846c;
+      --accent-cool: #5a7d8c;
+      --positive: #68a67d;
+      --warning: #c9956c;
+      --mystery: #8b7aa7;
+      --border: #e2e0dd;
+
+      --font-heading: 'Noto Serif SC', Georgia, serif;
+      --font-body: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: var(--text-base);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-6);
+    }
+
+    /* 标题区 */
+    .header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+      padding-bottom: var(--space-8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-badge {
+      display: inline-block;
+      font-size: var(--text-xs);
+      color: var(--accent);
+      background: rgba(107, 91, 149, 0.1);
+      padding: var(--space-1) var(--space-3);
+      border-radius: 100px;
+      margin-bottom: var(--space-4);
+    }
+
+    .header h1 {
+      font-family: var(--font-heading);
+      font-size: var(--text-3xl);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-3);
+    }
+
+    .header-subtitle {
+      color: var(--ink-secondary);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-4);
+    }
+
+    .dream-tags {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .dream-tag {
+      font-size: var(--text-xs);
+      color: var(--accent);
+      background: rgba(107, 91, 149, 0.08);
+      padding: var(--space-1) var(--space-3);
+      border-radius: 100px;
+    }
+
+    /* 五梦归类 */
+    .dream-classification {
+      margin-bottom: var(--space-8);
+    }
+
+    .dream-classification-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--ink);
+    }
+
+    .dream-classification-item {
+      background: var(--paper-card);
+      border-radius: 12px;
+      padding: var(--space-6);
+      box-shadow: 0 2px 8px rgba(45, 55, 72, 0.06);
+    }
+
+    .dream-classification-label {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-2);
+    }
+
+    .dream-classification-content {
+      font-size: var(--text-base);
+      color: var(--ink);
+    }
+
+    /* 心相卡片 */
+    .heart-mirror {
+      margin-bottom: var(--space-6);
+    }
+
+    .heart-mirror-card {
+      background: var(--paper-card);
+      border-radius: 12px;
+      padding: var(--space-6);
+      box-shadow: 0 2px 8px rgba(45, 55, 72, 0.06);
+      border-left: 3px solid var(--accent);
+    }
+
+    .heart-mirror-card.perspective-psychology {
+      border-left-color: var(--accent-cool);
+    }
+
+    .heart-mirror-card.perspective-metaphysics {
+      border-left-color: var(--mystery);
+    }
+
+    .heart-mirror-card.perspective-dual {
+      border-left: 3px solid transparent;
+      border-image: linear-gradient(to bottom, var(--accent-cool), var(--mystery)) 1;
+    }
+
+    .heart-mirror-header {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .heart-mirror-number {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .heart-mirror-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .heart-mirror-label {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      margin-left: auto;
+    }
+
+    .heart-mirror-content {
+      color: var(--ink-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+
+    .heart-mirror-content p {
+      margin-bottom: var(--space-3);
+    }
+
+    .heart-mirror-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 双视角对照 */
+    .perspective-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .perspective-box {
+      background: var(--paper-secondary);
+      border-radius: 8px;
+      padding: var(--space-4);
+    }
+
+    .perspective-box-title {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .perspective-box-title.psychology {
+      color: var(--accent-cool);
+    }
+
+    .perspective-box-title.metaphysics {
+      color: var(--mystery);
+    }
+
+    .perspective-box-content {
+      font-size: var(--text-xs);
+      color: var(--ink-secondary);
+      line-height: 1.7;
+    }
+
+    /* 传统意象参考 */
+    .fortune-reference {
+      margin-top: var(--space-8);
+      background: linear-gradient(135deg, rgba(139, 122, 167, 0.06), rgba(180, 132, 108, 0.06));
+      border-radius: 12px;
+      padding: var(--space-6);
+    }
+
+    .fortune-reference-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+    }
+
+    .fortune-reference-content {
+      color: var(--ink-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+
+    .fortune-good {
+      color: var(--positive);
+      font-weight: 500;
+    }
+
+    .fortune-caution {
+      color: var(--warning);
+      font-weight: 500;
+    }
+
+    .fortune-reference-note {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      margin-top: var(--space-4);
+      font-style: italic;
+    }
+
+    /* 综合心语 */
+    .closing-wisdom {
+      margin-top: var(--space-12);
+      padding: var(--space-8);
+      background: linear-gradient(135deg, rgba(107, 91, 149, 0.06), rgba(180, 132, 108, 0.06));
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .closing-wisdom-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+    }
+
+    .closing-wisdom-text {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      color: var(--ink-secondary);
+      line-height: 2;
+      font-style: italic;
+    }
+
+    /* 梦境日记 */
+    .dream-diary {
+      margin-top: var(--space-8);
+      background: var(--paper-secondary);
+      border-radius: 12px;
+      padding: var(--space-6);
+    }
+
+    .dream-diary-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+    }
+
+    .dream-diary-content {
+      color: var(--ink-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+
+    .dream-diary-content ol {
+      padding-left: var(--space-6);
+      margin-top: var(--space-2);
+    }
+
+    .dream-diary-content li {
+      margin-bottom: var(--space-2);
+    }
+
+    .dream-diary-entry {
+      background: var(--paper-card);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: var(--space-4) var(--space-6);
+      margin-top: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--ink-secondary);
+      line-height: 1.8;
+      white-space: pre-wrap;
+      user-select: all;
+    }
+
+    .dream-diary-entry-hint {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      margin-top: var(--space-2);
+      font-style: italic;
+    }
+
+    /* 分享引导 */
+    .share-guide {
+      margin-top: var(--space-8);
+      text-align: center;
+    }
+
+    .share-guide-text {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+    }
+
+    /* 分享卡片 */
+    .share-card {
+      max-width: 375px;
+      margin: var(--space-8) auto;
+      background: linear-gradient(135deg, #2d3748, #4a5568);
+      border-radius: 16px;
+      padding: var(--space-8);
+      color: #faf9f7;
+      text-align: center;
+    }
+
+    .share-card-badge {
+      font-size: var(--text-xs);
+      color: #a0aec0;
+      letter-spacing: 0.1em;
+    }
+
+    .share-card-dream-type {
+      font-size: var(--text-sm);
+      color: #a0aec0;
+      margin-top: var(--space-2);
+    }
+
+    .share-card-keyword {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      color: #faf9f7;
+      margin-top: var(--space-3);
+    }
+
+    .share-card-message {
+      font-size: var(--text-sm);
+      color: #e2e0dd;
+      margin-top: var(--space-4);
+      line-height: 1.7;
+    }
+
+    .share-card-footer {
+      font-size: var(--text-xs);
+      color: #718096;
+      margin-top: var(--space-6);
+    }
+
+    /* 反馈 */
+    .feedback-section {
+      margin-top: var(--space-8);
+      text-align: center;
+    }
+
+    .feedback-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+    }
+
+    .feedback-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .feedback-option {
+      background: var(--paper-secondary);
+      border-radius: 8px;
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--ink-secondary);
+    }
+
+    /* 安全边界声明 */
+    .disclaimer {
+      background: var(--paper-secondary);
+      border-radius: 8px;
+      padding: var(--space-4) var(--space-6);
+      margin-top: var(--space-6);
+      border-left: 3px solid var(--accent-cool);
+    }
+
+    .disclaimer-text {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* 底部 */
+    .footer {
+      margin-top: var(--space-12);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-text {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .perspective-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 标题区 -->
+    <header class="header">
+      <span class="header-badge">心相分析报告 · 深度模式</span>
+      <h1>「五梦七心相」</h1>
+      <p class="header-subtitle">分析时间：2026年6月5日｜解析框架：心理学 + 传统易学双视角</p>
+      <div class="dream-tags">
+        <span class="dream-tag">思梦</span>
+        <span class="dream-tag">噩梦</span>
+        <span class="dream-tag">无力</span>
+      </div>
+    </header>
+
+    <!-- 五梦归类 -->
+    <section class="dream-classification">
+      <h2 class="dream-classification-title">五梦归类</h2>
+      <div class="dream-classification-item">
+        <div class="dream-classification-label">梦型判定</div>
+        <div class="dream-classification-content">
+          <strong>思梦 + 噩梦</strong><br><br>
+          <em>思梦</em>：日有所思——演讲比赛、工作晋升、家庭关系，多重意念在白昼纠缠，入夜后凝结为考场之梦。高考作为"人生大考"的集体记忆，是最容易承载"被评判焦虑"的梦境场景。<br><br>
+          <em>噩梦</em>：惊惧而梦——梦中持续的无力和绝望，情绪从头到尾没有起伏，说明这不是一次性的恐惧触发，而是一种<strong>慢性的、渗透性的焦虑</strong>。<br><br>
+          <span style="color: var(--ink-muted); font-size: var(--text-xs);">梦日溯源：演讲比赛准备（近期刺激源）+ 工作晋升停滞（持续压力源）+ 与母亲争吵（情感刺激源）→ 三重压力叠加，构成"梦日"的复合刺激</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 心相一：欲望之镜 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">一</span>
+          <h2 class="heart-mirror-title">欲望之镜</h2>
+          <span class="heart-mirror-label">核心动机</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>这个梦的核心欲望，不是"考好"，甚至不是"成功"。</p>
+          <p>它的核心欲望是——<strong>"我想被看见我做了多少，而不是被衡量我还差多少。"</strong></p>
+          <p>个人荣誉拿了很多，说明你一直在努力，也一直有实力。但晋升难、同龄人超越、家庭沟通不畅——这些现实像一张无形的试卷，你写满了答案，却没有人来批改。你的潜意识似乎在说：<em>"我做了这么多，为什么没有人在乎？"</em></p>
+          <p>弗洛伊德说，梦是欲望的伪装达成。这个梦伪装成了"考试焦虑"，但真正的欲望藏在更深处：<strong>你渴望的不是通过考试，而是被承认——你一直都在努力，你值得被看见。</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 心相二：情感之流 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">二</span>
+          <h2 class="heart-mirror-title">情感之流</h2>
+          <span class="heart-mirror-label">情绪线索</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>梦中的情绪从头到尾没有变化——<strong>持续的、均匀的慌和绝望</strong>。</p>
+          <p>这个"没有变化"本身就是最重要的信息。如果情绪有起伏（先急后绝望，或先平静后崩溃），说明焦虑有一个触发点。但你的情绪是<strong>恒定的</strong>，这意味着：焦虑不是被某个事件点燃的，而是像背景音一样一直存在。</p>
+          <p>它已经变成了你生活的底色。演讲比赛只是让它浮出水面的一阵风，它本身一直在那里。</p>
+          <p>而"被冻住"的感觉——身体和大脑像被定住——是心理学中典型的<strong>"冻结反应"（freeze response）</strong>。当一个人长期处于慢性压力下，神经系统会从"战斗或逃跑"切换到"冻结"模式：不是不想动，是身体自动选择了"装死"来保护自己。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 心相三：意象之林 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">三</span>
+          <h2 class="heart-mirror-title">意象之林</h2>
+          <span class="heart-mirror-label">关键象征</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>🔮 <strong>高考考场</strong>——不是普通的考试，是高考。这个场景承载了"一考定终身"的集体焦虑。选择高考而非演讲台，说明潜意识中，你把当前的困境感受为<strong>"人生级别的评判"</strong>，而不只是一次普通的挑战。</p>
+          <p>🔮 <strong>纯白试卷</strong>——明亮考场中的纯白试卷，反差极强。白不是"空"，白是"一切尚未开始，但时间已经在走了"。它象征的是<strong>"可能性被冻结的瞬间"</strong>——你明明有能力，但表达通道被焦虑封住了。</p>
+          <p>🔮 <strong>看不清脸的同学</strong>——你一开始说"周围人都在写"，但仔细回想后发现，你并没有真正去看他们。那些"奋笔疾书的人"是一种<strong>内在的评判声音的外化</strong>，不是真实的人，而是你心中那个永远在比较、永远觉得"别人都比我好"的信念。</p>
+          <p>🔮 <strong>手中的黑色水笔</strong>——工具就在手里，但你用不了。这是整个梦中最有力量的意象：<strong>不是没有能力，是能力和行动之间的连接断了。</strong></p>
+          <p>🔮 <strong>"最后十五分钟"</strong>——倒计时的声音，但你并没有因此更慌。因为从一开始就已经在最绝望的状态里了。这个声音更像是一个隐喻：<strong>"时间在流逝，而你停在原地。"</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 心相四：关系之网 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">四</span>
+          <h2 class="heart-mirror-title">关系之网</h2>
+          <span class="heart-mirror-label">人物映射</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>梦中出现了三组"他人"形象，每组都映射着现实中不同的关系张力：</p>
+          <p><strong>看不清脸的同学</strong>→ 映射的是<strong>同龄人比较</strong>。你说"同期的小伙伴已经走上领导岗位、年薪翻倍"，这些人是你看不清的——不是真的看不清，而是你不愿意仔细看。因为一旦看清，那种"被甩在后面"的感觉会更痛。</p>
+          <p><strong>只有声音的监考老师</strong>→ 映射的是<strong>权威与评价体系</strong>。老师看不见脸，只有"最后十五分钟"的声音——这像极了国企中的晋升机制：你看不清评判标准，只能感受到时间在走、机会在流逝。</p>
+          <p><strong>缺席的家人</strong>→ 梦中没有出现妈妈，但你在对话中提到了跟妈妈吵架。这个"缺席"本身就是信息：<strong>在最无助的时刻，你想不到可以求助的人。</strong>家庭关系的紧张，让你在压力面前更加孤立。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 心相五：冲突之地 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">五</span>
+          <h2 class="heart-mirror-title">冲突之地</h2>
+          <span class="heart-mirror-label">未解情结</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>这个梦的核心冲突非常清晰：</p>
+          <p><strong>"我已经很努力了" vs "无论怎么努力，似乎都改变不了什么"</strong></p>
+          <p>这不是懒和勤的冲突，而是一个人在付出大量努力后，面对"回报不成正比"时的存在性困惑。你拿了那么多个人荣誉，说明你的能力是被认可的——但认可和晋升之间，似乎隔着一堵看不见的墙。</p>
+          <p>这个冲突在三个场景中反复出现：</p>
+          <p>• <em>工作</em>：努力了，荣誉拿了，但晋升无望<br>
+          • <em>演讲比赛</em>：想表达，有内容，但社恐让表达通道冻结<br>
+          • <em>和妈妈</em>：有感情，有想法，但话到嘴边变成了冲突或沉默</p>
+          <p>三个场景，同一个模式：<strong>通道是通的，但信号被堵了。</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 心相六：天人之机（双视角） -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card perspective-dual">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">六</span>
+          <h2 class="heart-mirror-title">天人之机</h2>
+          <span class="heart-mirror-label">双视角对照</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>这个心相我们从两个视角来解读：</p>
+          <div class="perspective-compare">
+            <div class="perspective-box">
+              <div class="perspective-box-title psychology">🔬 心理学视角</div>
+              <div class="perspective-box-content">
+                <p>从心理学角度看，"冻结反应"是长期慢性压力的典型表现。当一个人反复经历"努力→看不到回报→再努力→仍然看不到回报"的循环后，大脑会学会一种保护机制：<strong>降低期待，减少投入，避免失望。</strong></p>
+                <p>你说的"麻木"，就是这个保护机制的副作用。它保护你不被痛苦击垮，但也同时冻结了你的行动力。</p>
+                <p>梦做到一半就消失了——这也许是潜意识的一种"自我保护"：不让你走到最绝望的那一刻，因为你的心理承受力已经接近极限了。</p>
+              </div>
+            </div>
+            <div class="perspective-box">
+              <div class="perspective-box-title metaphysics">🏯 传统易学视角</div>
+              <div class="perspective-box-content">
+                <p>考场属<strong>离卦</strong>（火，光明、文明、考试），空白试卷属<strong>坤卦</strong>（地，承载、柔顺、空虚）。离在上，坤在下，构成<strong>《晋》卦</strong>（火地晋）。</p>
+                <p>晋卦本义为"光明上进"，但你的梦中晋卦是"反象"——光明在上却照不亮手中的白纸。这暗示<strong>时机未到，或方向需要调整</strong>。</p>
+                <p>手中握笔而不能书，属<strong>坎水</strong>（险阻、冻结）之象。离火被坎水所困，火不能燃，水不能流——<strong>火水未济</strong>，万事俱备而功未成。</p>
+                <p>传统解读认为：此梦非凶非吉，而是<strong>"蓄势待发"之象</strong>。冻住不是结局，是过渡。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 传统意象参考 -->
+    <section class="fortune-reference">
+      <h2 class="fortune-reference-title">☯ 传统意象参考</h2>
+      <div class="fortune-reference-content">
+        <p><span class="fortune-good">近期宜：</span>蓄力内省，不宜急于求成。适合整理已有的成果和经验，为下一步做准备。与信任的人做一次真诚的沟通，释放内心积压的情绪。</p>
+        <p><span class="fortune-caution">近期忌：</span>在压力下做重大决策。与人在情绪激动时争论对错。用他人的进度来衡量自己的价值。</p>
+      </div>
+      <p class="fortune-reference-note">* 以上仅为传统民俗解读参考，你的行动和心态才是决定因素。</p>
+    </section>
+
+    <!-- 心相七：行动之引 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">七</span>
+          <h2 class="heart-mirror-title">行动之引</h2>
+          <span class="heart-mirror-label">实践指引</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p><strong>1. 解冻：从最小的行动开始</strong></p>
+          <p>"冻结"不是永久状态，它是一种保护。要解冻，不需要做大事，只需要做一件<strong>有即时反馈的小事</strong>。比如：今天花10分钟写下三件你最近做成的事，不管多小。让大脑重新体验"行动→结果"的正向循环。</p>
+          <p><strong>2. 重新定义"考场"：你不是在参加别人的考试</strong></p>
+          <p>梦里的高考考场，是你把别人的标准内化成了自己的评判体系。同龄人的晋升、年薪翻倍——那是他们的考场，不是你的。你的个人荣誉已经证明了你的能力，也许你需要问的不是"为什么我还没晋升"，而是<strong>"我真正想走的方向是什么"</strong>。</p>
+          <p><strong>3. 修复表达通道：从写信开始</strong></p>
+          <p>演讲比赛和跟妈妈吵架，都是"有话说不出来"。建议你试试<strong>写一封不寄出的信</strong>——给妈妈，或者给自己。把那些"冻住"的话写出来。书写是说话的安全版，不需要面对听众的压力，但能帮你重新打通"想法→表达"的通道。</p>
+          <p><strong>4. 把"无力"变成"暂停"</strong></p>
+          <p>无力感让人绝望，但"暂停"是一个主动的选择。你不是被冻住了，你是在积蓄力量。传统视角的"火水未济"也说了：这不是结局，是过渡。允许自己暂时停下来，不代表放弃，代表你在等一个更好的时机。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 综合心语 -->
+    <section class="closing-wisdom">
+      <h2 class="closing-wisdom-title">综合心语</h2>
+      <p class="closing-wisdom-text">
+        你握着笔，却写不出来。<br>
+        不是因为你不会写，<br>
+        是因为你太累了。<br><br>
+        那张空白试卷上，<br>
+        其实写满了你所有的努力——<br>
+        只是焦虑化成了一层白雾，<br>
+        遮住了那些字迹。<br><br>
+        你不需要答完别人出的卷子。<br>
+        你只需要拿起笔，<br>
+        写一道——真正属于你自己的题。<br><br>
+        哪怕只写一行，<br>
+        那也是你的答案。
+      </p>
+    </section>
+
+    <!-- 梦境日记建议 -->
+    <section class="dream-diary">
+      <h2 class="dream-diary-title">🌙 梦境日记建议</h2>
+      <div class="dream-diary-content">
+        <p>如果你想持续探索自己的梦境世界，可以试试这个方法：</p>
+        <ol>
+          <li>每次解梦后，保存下方的「梦境日记条目」</li>
+          <li>一周后回顾，看看有没有重复出现的主题或意象</li>
+          <li>积累3条以上后，把所有条目粘贴给我，我会帮你做「梦境日记分析」——发现你的高频情绪、高频意象和心理模式变化</li>
+        </ol>
+        <p>梦境是潜意识写给自己的信。坚持记录，你会慢慢读懂它的语言。</p>
+      </div>
+
+      <!-- 梦境日记条目（可复制） -->
+      <div class="dream-diary-entry">📅 梦境日记条目 #1
+日期：2026-06-05
+梦型：思梦 + 噩梦
+核心意象：高考考场、纯白试卷、手中的黑色水笔、倒计时声音
+情绪基调：无力、持续的慌张与绝望、冻结感
+一句话总结：努力了很久却被卡住，表达通道被焦虑封住
+---
+（保存此条目，积累多条后粘贴给我，我会帮你发现模式变化）</div>
+      <p class="dream-diary-entry-hint">↑ 点击条目可全选复制</p>
+    </section>
+
+    <!-- 分享引导 -->
+    <div class="share-guide">
+      <p class="share-guide-text">这份报告属于你。如果想分享给朋友，可以截图保存。你的梦境，你的心相。分享时可以去掉敏感信息哦。</p>
+    </div>
+
+    <!-- 分享卡片 -->
+    <section class="share-card">
+      <span class="share-card-badge">五梦七心相</span>
+      <p class="share-card-dream-type">思梦 + 噩梦 · 深度双视角</p>
+      <p class="share-card-keyword">「无力」</p>
+      <p class="share-card-message">你不需要答完别人出的卷子。你只需要拿起笔，写一道——真正属于你自己的题。</p>
+      <p class="share-card-footer">— 五梦七心相 · 心相分析报告</p>
+    </section>
+
+    <!-- 用户反馈 -->
+    <section class="feedback-section">
+      <h2 class="feedback-title">这份解读对你有帮助吗？</h2>
+      <div class="feedback-options">
+        <div class="feedback-option">💡 很有帮助，让我更了解自己</div>
+        <div class="feedback-option">🌱 有一些启发，但还想深入了解</div>
+        <div class="feedback-option">💭 和我的感受不太一样，想再聊聊</div>
+      </div>
+    </section>
+
+    <!-- 安全边界声明 -->
+    <section class="disclaimer">
+      <p class="disclaimer-text">
+        ⚠️ 本报告基于心理学理论和传统民俗文化，仅供自我觉察与情绪整理参考。<br>
+        本报告不是医学诊断、心理评估或现实预测。<br>
+        若梦境长期造成明显困扰，建议寻求专业心理咨询支持。
+      </p>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+      <p class="footer-text">心相之道，在于观象见心，以梦为镜</p>
+    </footer>
+  </div>
+</body>
+</html>
