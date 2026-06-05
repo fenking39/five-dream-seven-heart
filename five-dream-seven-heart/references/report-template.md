@@ -7,11 +7,12 @@
 - 四、间距系统
 - 五、HTML报告模板（深度模式完整版）
 - 六、HTML报告模板（快速模式精简版）
-- 七、分享卡片模板
-- 八、报告内容撰写规范
-- 九、吉凶参考撰写规范
-- 十、报告禁止事项
-- 十一、报告推荐语气
+- 七、HTML报告模板（梦境日记分析模式）
+- 八、分享卡片模板
+- 九、报告内容撰写规范
+- 十、传统意象参考撰写规范
+- 十一、报告禁止事项
+- 十二、报告推荐语气
 
 ## 一、设计原则
 
@@ -301,7 +302,7 @@
       white-space: nowrap;
     }
 
-    /* 吉凶参考区块 */
+    /* 传统意象参考区块 */
     .fortune-reference {
       background: linear-gradient(135deg, rgba(139, 122, 167, 0.08), rgba(180, 132, 108, 0.08));
       border-radius: 12px;
@@ -477,6 +478,43 @@
     .dream-classification-content {
       color: var(--ink-secondary);
       font-size: var(--text-sm);
+    }
+
+    /* 梦境日记条目 */
+    .dream-diary-entry {
+      background: var(--paper-card);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: var(--space-4) var(--space-6);
+      margin-top: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--ink-secondary);
+      line-height: 1.8;
+      white-space: pre-wrap;
+      user-select: all;
+    }
+
+    .dream-diary-entry-hint {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      margin-top: var(--space-2);
+      font-style: italic;
+    }
+
+    /* 安全边界声明 */
+    .disclaimer {
+      background: var(--paper-secondary);
+      border-radius: 8px;
+      padding: var(--space-4) var(--space-6);
+      margin-top: var(--space-6);
+      border-left: 3px solid var(--accent-cool);
+    }
+
+    .disclaimer-text {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      line-height: 1.7;
     }
 
     /* 底部 */
@@ -662,9 +700,9 @@
       </div>
     </section>
 
-    <!-- 吉凶参考（仅玄学框架） -->
+    <!-- 传统意象参考（仅玄学框架） -->
     <section class="fortune-reference">
-      <h2 class="fortune-reference-title">☯ 吉凶参考</h2>
+      <h2 class="fortune-reference-title">☯ 传统意象参考</h2>
       <div class="fortune-reference-content">
         <p><span class="fortune-good">近期宜：</span>[基于卦象和梦型的行动建议]</p>
         <p><span class="fortune-caution">近期忌：</span>[基于卦象和梦型的注意事项]</p>
@@ -700,12 +738,23 @@
       <div class="dream-diary-content">
         <p>如果你想持续探索自己的梦境世界，可以试试这个方法：</p>
         <ol>
-          <li>每天醒来后，花1分钟记录梦境关键词（画面、情绪、人物）</li>
+          <li>每次解梦后，保存下方的「梦境日记条目」</li>
           <li>一周后回顾，看看有没有重复出现的主题或意象</li>
-          <li>一个月后再次解读，你会发现自己更深层的心理模式</li>
+          <li>积累3条以上后，把所有条目粘贴给我，我会帮你做「梦境日记分析」——发现你的高频情绪、高频意象和心理模式变化</li>
         </ol>
         <p>梦境是潜意识写给自己的信。坚持记录，你会慢慢读懂它的语言。</p>
       </div>
+
+      <!-- 梦境日记条目（可复制） -->
+      <div class="dream-diary-entry">📅 梦境日记条目 #[N]
+日期：[YYYY-MM-DD]
+梦型：[梦型判定]
+核心意象：[意象1]、[意象2]
+情绪基调：[主要情绪]
+一句话总结：[一句话概括]
+---
+（保存此条目，积累多条后粘贴给我，我会帮你发现模式变化）</div>
+      <p class="dream-diary-entry-hint">↑ 点击条目可全选复制</p>
     </section>
 
     <!-- 分享引导 -->
@@ -730,6 +779,15 @@
         <div class="feedback-option">🌱 有一些启发，但还想深入了解</div>
         <div class="feedback-option">💭 和我的感受不太一样，想再聊聊</div>
       </div>
+    </section>
+
+    <!-- 安全边界声明 -->
+    <section class="disclaimer">
+      <p class="disclaimer-text">
+        ⚠️ 本报告基于心理学理论和传统民俗文化，仅供自我觉察与情绪整理参考。<br>
+        本报告不是医学诊断、心理评估或现实预测。<br>
+        若梦境长期造成明显困扰，建议寻求专业心理咨询支持。
+      </p>
     </section>
 
     <!-- 底部 -->
@@ -823,9 +881,9 @@
       </div>
     </section>
 
-    <!-- 吉凶参考（仅玄学框架） -->
+    <!-- 传统意象参考（仅玄学框架） -->
     <section class="fortune-reference">
-      <h2 class="fortune-reference-title">☯ 吉凶参考</h2>
+      <h2 class="fortune-reference-title">☯ 传统意象参考</h2>
       <div class="fortune-reference-content">
         <p><span class="fortune-good">近期宜：</span>[行动建议]</p>
         <p><span class="fortune-caution">近期忌：</span>[注意事项]</p>
@@ -847,11 +905,22 @@
       <div class="dream-diary-content">
         <p>如果你想持续探索自己的梦境世界，可以试试这个方法：</p>
         <ol>
-          <li>每天醒来后，花1分钟记录梦境关键词</li>
+          <li>每次解梦后，保存下方的「梦境日记条目」</li>
           <li>一周后回顾，看看有没有重复出现的主题</li>
-          <li>一个月后再次解读，发现更深层的心理模式</li>
+          <li>积累3条以上后，把所有条目粘贴给我，我会帮你做「梦境日记分析」</li>
         </ol>
       </div>
+
+      <!-- 梦境日记条目（可复制） -->
+      <div class="dream-diary-entry">📅 梦境日记条目 #[N]
+日期：[YYYY-MM-DD]
+梦型：[梦型判定]
+核心意象：[意象1]、[意象2]
+情绪基调：[主要情绪]
+一句话总结：[一句话概括]
+---
+（保存此条目，积累多条后粘贴给我，我会帮你发现模式变化）</div>
+      <p class="dream-diary-entry-hint">↑ 点击条目可全选复制</p>
     </section>
 
     <!-- 分享引导 -->
@@ -878,6 +947,15 @@
       </div>
     </section>
 
+    <!-- 安全边界声明 -->
+    <section class="disclaimer">
+      <p class="disclaimer-text">
+        ⚠️ 本报告基于心理学理论和传统民俗文化，仅供自我觉察与情绪整理参考。<br>
+        本报告不是医学诊断、心理评估或现实预测。<br>
+        若梦境长期造成明显困扰，建议寻求专业心理咨询支持。
+      </p>
+    </section>
+
     <!-- 底部 -->
     <footer class="footer">
       <p class="footer-text">心相之道，在于观象见心，以梦为镜</p>
@@ -887,7 +965,260 @@
 </html>
 ```
 
-## 七、分享卡片模板
+## 七、HTML报告模板（梦境日记分析模式）
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「五梦七心相」梦境日记分析报告</title>
+  <style>
+    /* 复用深度模式的完整CSS，此处仅列出差异部分 */
+
+    /* 日记分析标识 */
+    .header-badge {
+      background: rgba(107, 91, 149, 0.15);
+      color: var(--accent);
+    }
+
+    /* 高频意象列表 */
+    .frequency-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+
+    .frequency-tag {
+      font-size: var(--text-sm);
+      padding: var(--space-2) var(--space-4);
+      border-radius: 100px;
+      background: rgba(107, 91, 149, 0.1);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .frequency-count {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      margin-left: var(--space-1);
+    }
+
+    /* 趋势时间线 */
+    .trend-timeline {
+      position: relative;
+      padding-left: var(--space-8);
+      margin-top: var(--space-4);
+    }
+
+    .trend-timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .trend-item {
+      position: relative;
+      margin-bottom: var(--space-6);
+    }
+
+    .trend-item::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-8) + 8px);
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--paper-card);
+    }
+
+    .trend-date {
+      font-size: var(--text-xs);
+      color: var(--ink-muted);
+      margin-bottom: var(--space-1);
+    }
+
+    .trend-content {
+      font-size: var(--text-sm);
+      color: var(--ink-secondary);
+      line-height: 1.7;
+    }
+
+    /* 模式总结卡片 */
+    .pattern-summary {
+      background: linear-gradient(135deg, rgba(107, 91, 149, 0.08), rgba(180, 132, 108, 0.08));
+      border-radius: 12px;
+      padding: var(--space-6);
+      margin-top: var(--space-8);
+      border: 1px solid rgba(107, 91, 149, 0.15);
+    }
+
+    .pattern-summary-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+    }
+
+    .pattern-summary-content {
+      color: var(--ink-secondary);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 标题区 -->
+    <header class="header">
+      <span class="header-badge">梦境日记分析报告</span>
+      <h1>「五梦七心相」</h1>
+      <p class="header-subtitle">分析时间：[日期]｜分析条目：[N]条</p>
+      <div class="dream-tags">
+        <span class="dream-tag">[时间跨度，如：2026.05.10 - 2026.06.05]</span>
+        <span class="dream-tag">[N]次梦境记录</span>
+      </div>
+    </header>
+
+    <!-- 高频意象 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">📊</span>
+          <h2 class="heart-mirror-title">高频意象</h2>
+          <span class="heart-mirror-label">反复出现的画面</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>在你的[N]条梦境记录中，以下意象反复出现：</p>
+          <div class="frequency-list">
+            <span class="frequency-tag">[意象1] <span class="frequency-count">×N</span></span>
+            <span class="frequency-tag">[意象2] <span class="frequency-count">×N</span></span>
+            <span class="frequency-tag">[意象3] <span class="frequency-count">×N</span></span>
+          </div>
+          <p style="margin-top: var(--space-3);">[对高频意象的简要解读，2-3句]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 高频情绪 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">💫</span>
+          <h2 class="heart-mirror-title">高频情绪</h2>
+          <span class="heart-mirror-label">情绪基调分布</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>情绪基调方面：<strong>[情绪1]</strong>出现最频繁（N次），其次是<strong>[情绪2]</strong>（N次）。</p>
+          <p>[对高频情绪的简要解读，2-3句]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 趋势变化 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">📈</span>
+          <h2 class="heart-mirror-title">趋势变化</h2>
+          <span class="heart-mirror-label">时间线上的演变</span>
+        </div>
+        <div class="heart-mirror-content">
+          <div class="trend-timeline">
+            <div class="trend-item">
+              <div class="trend-date">[早期时间段]</div>
+              <div class="trend-content">[早期梦境特征：主要情绪、主要意象、梦型倾向]</div>
+            </div>
+            <div class="trend-item">
+              <div class="trend-date">[中期时间段]</div>
+              <div class="trend-content">[中期变化：情绪转折、意象变化、新出现的元素]</div>
+            </div>
+            <div class="trend-item">
+              <div class="trend-date">[近期时间段]</div>
+              <div class="trend-content">[近期特征：当前情绪状态、意象变化方向、可能的压力源]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模式总结 -->
+    <section class="pattern-summary">
+      <h2 class="pattern-summary-title">🔍 模式总结</h2>
+      <div class="pattern-summary-content">
+        <p>[综合分析：这些梦境模式反映了什么心理状态？]</p>
+        <p>[与现实生活的关联：可能对应的压力源或生活变化]</p>
+        <p>[趋势预判：如果模式持续，可能意味着什么？]</p>
+      </div>
+    </section>
+
+    <!-- 行动建议 -->
+    <section class="heart-mirror">
+      <div class="heart-mirror-card">
+        <div class="heart-mirror-header">
+          <span class="heart-mirror-number">🧭</span>
+          <h2 class="heart-mirror-title">行动建议</h2>
+          <span class="heart-mirror-label">基于模式分析</span>
+        </div>
+        <div class="heart-mirror-content">
+          <p>基于你的梦境日记分析，建议：</p>
+          <p>1. [具体建议1]</p>
+          <p>2. [具体建议2]</p>
+          <p>3. [具体建议3]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 综合心语 -->
+    <section class="closing-wisdom">
+      <h2 class="closing-wisdom-title">综合心语</h2>
+      <p class="closing-wisdom-text">
+        [综合心语内容，基于模式分析的总结性话语，温暖柔和]
+      </p>
+    </section>
+
+    <!-- 梦境日记建议 -->
+    <section class="dream-diary">
+      <h2 class="dream-diary-title">🌙 继续记录</h2>
+      <div class="dream-diary-content">
+        <p>你的梦境日记已经有[N]条了，继续保持！</p>
+        <p>建议每积累5-10条后做一次分析，观察更长期的心理模式变化。</p>
+      </div>
+    </section>
+
+    <!-- 分享引导 -->
+    <div class="share-guide">
+      <p class="share-guide-text">这份梦境日记分析属于你。如果想分享，可以截图保存。</p>
+    </div>
+
+    <!-- 安全边界声明 -->
+    <section class="disclaimer">
+      <p class="disclaimer-text">
+        ⚠️ 本报告基于心理学理论和传统民俗文化，仅供自我觉察与情绪整理参考。<br>
+        本报告不是医学诊断、心理评估或现实预测。<br>
+        若梦境长期造成明显困扰，建议寻求专业心理咨询支持。
+      </p>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+      <p class="footer-text">心相之道，在于观象见心，以梦为镜</p>
+    </footer>
+  </div>
+</body>
+</html>
+```
+
+## 八、分享卡片模板
 
 分享卡片嵌入在报告底部，也可单独生成供用户截图分享。
 
@@ -899,7 +1230,7 @@
 
 **CSS 样式**：见深度模式模板中的 `.share-card` 相关样式
 
-## 八、报告内容撰写规范
+## 九、报告内容撰写规范
 
 ### 1. 各部分内容要求
 
@@ -931,7 +1262,7 @@
 - 单个心相：60-100字
 - 综合心语：30-50字
 
-## 九、吉凶参考撰写规范
+## 十、传统意象参考撰写规范
 
 ### 1. 何时显示
 - 仅在用户选择玄学框架或双框架结合时显示
@@ -950,7 +1281,7 @@
 ### 4. 示例
 
 ```
-☯ 吉凶参考
+☯ 传统意象参考
 
 近期宜：聚焦行动，将焦虑转化为具体准备。坎卦提示"行有尚"，只要行动，必有收获。
 近期忌：过度犹豫不决。坎离相冲提示当前是关键转折点，拖延可能错失时机。
@@ -958,7 +1289,7 @@
 * 以上仅为传统解读参考，你的行动和心态才是决定因素。
 ```
 
-## 十、报告禁止事项
+## 十一、报告禁止事项
 
 - ❌ "此梦主..."（武断）
 - ❌ "必须""应该"（命令）
@@ -968,9 +1299,9 @@
 - ❌ 卡片嵌套卡片
 - ❌ 紫蓝渐变背景
 - ❌ bounce/elastic 动画
-- ❌ 吉凶参考中使用绝对预测性语言
+- ❌ 传统意象参考中使用绝对预测性语言
 
-## 十一、报告推荐语气
+## 十二、报告推荐语气
 
 | 场景 | 推荐表达 |
 |------|----------|
@@ -978,7 +1309,7 @@
 | 解读动机 | 「也许...」「似乎...」「你的潜意识似乎在...」 |
 | 提供建议 | 「可以考虑...」「或许可以试试...」 |
 | 玄学视角 | 「传统解读认为...」「象数之机暗示...」 |
-| 吉凶参考 | 「可能提示...」「或许可以...」「建议...」 |
+| 传统意象参考 | 「可能提示...」「或许可以...」「建议...」 |
 | 总结 | 「综合来看...」「双视角都指向...」 |
 | 梦境日记 | 「坚持记录，你会慢慢读懂它的语言」 |
 | 分享引导 | 「这份报告属于你。你的梦境，你的心相。」 |
